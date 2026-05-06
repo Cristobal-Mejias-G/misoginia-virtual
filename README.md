@@ -43,7 +43,6 @@ mediante pruebas estadísticas.
 
 ## Estructura del repositorio
 
-```text
 Misoginia-Virtual/
 ├── data/ # Bases de datos procesadas
 ├── images/ # Imágenes
@@ -52,7 +51,7 @@ Misoginia-Virtual/
 ├── presentacion-1.qmd # Fuente Presentación 1
 ├── presentacion-2.qmd # Fuente Presentación 2
 └── styles.css # Estilo
-```
+
 
 
 ---

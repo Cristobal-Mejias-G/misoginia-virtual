@@ -1,0 +1,11 @@
+# R
+.Rhistory
+.RData
+.Rproj.user/
+*.Rproj
+
+# Quarto
+/.quarto/
+
+# Variables de entorno
+.env

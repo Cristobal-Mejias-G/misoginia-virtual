@@ -3,10 +3,15 @@ title: "Misoginia Digital: Análisis del Lenguaje y las Emociones en Reddit a tr
 subtitle: "Métodos Computacionales para las Ciencias Sociales<br>Profesor: Klaus Lehmann M.<br>Ayudante: Matías Gallardo V."
 author: "Felipe Vega G. & Cristóbal Mejías G."
 date: 2025-11-28
-format: html
+format:
+  html:
+    css: styles-tutorial.css
 execute:
   echo: true
 lang: es
+include-in-header:
+  text: |
+    <style>p { text-align: justify; }</style>
 ---
 
 ```{r}
@@ -162,7 +167,7 @@ De esta forma, se recolectaron todos los comentarios de cada publicación del d�
 
 Este proceso de automatización emplea Python para la extracción diaria de datos de Reddit, ejecutándose a través de Render, una plataforma de servicio web. Los datos obtenidos se almacenan inmediatamente en una base de datos dinámica. Para garantizar la disponibilidad continua del servicio y prevenir caídas, se utiliza Uptime Robot como herramienta de monitoreo constante de la página web
 
-![](images-2/Automatización.png){fig-align="center" width="80%"}
+![](images/Automatización.png){fig-align="center" width="80%"}
 
 ## 5.2 Procesamiento de la base de datos en R
 
@@ -180,7 +185,7 @@ iv) Se borraron comentarios eliminados.
 #| eval: false
 
 #---- 2. Importar datos brutos ----
-datos_bruto <- read_csv("datos_bruto.csv")
+datos_bruto <- read_csv("data/datos_bruto.csv")
 
 
 #---- 3. Procesamiento de datos brutos ----

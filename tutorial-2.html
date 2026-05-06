@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,6 +10,9 @@
 
 <title>Misoginia Digital: Análisis del Lenguaje y las Emociones en Reddit a través de Subreddits Diferenciados por Género</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -66,12 +69,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="tutorial-2_files/libs/quarto-html/tippy.umd.min.js"></script>
 <script src="tutorial-2_files/libs/quarto-html/anchor.min.js"></script>
 <link href="tutorial-2_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="tutorial-2_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="tutorial-2_files/libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="tutorial-2_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="tutorial-2_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="tutorial-2_files/libs/bootstrap/bootstrap-bb462d781dde1847d9e3ccf7736099dd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="tutorial-2_files/libs/bootstrap/bootstrap-efbb37e9afcc02144ebbc7afd12a776f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<style>p { text-align: justify; }</style>
 
 
+<link rel="stylesheet" href="styles-tutorial.css">
 </head>
 
 <body class="fullcontent quarto-light">
@@ -169,7 +174,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="extracción-de-de-información">5.1. Extracción de de información</h2>
 <p>En primer lugar, con los tokens de la aplicación de la API de Reddit guardados y conectados correctamente. Luego, se procedió a la extracción de comentarios de Reddit, la cual fue posteriormente automatizada.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> praw</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> praw</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd </span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv </span>
@@ -185,11 +190,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    client_id<span class="op">=</span>client_id,</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    client_secret<span class="op">=</span>client_secret,</span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    user_agent<span class="op">=</span>user_agent</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>La extracción de datos se realizó a partir de los subreddits de r/AskMen y r/AskWomen. En primer lugar, se creó una variable que contiene ambos subreddits de los cuales se extrajeron los datos. Posteriormente, se creó un for anidado: el primero refiere a cada subReddit; el segundo, a las publicación, las cuales se filtraron las top por día, con un límite de 1000; el tercero, corresponde a los comentarios de cada publicación; para esto, se tuvo que añadir una línea de código para también extraer los códigos que están abajo del view more. Cabe mencionar, que el siguiente código es un fragmento que es parte del código de automatización de extracción de datos, por lo que este no funcionará por sí solo, pero se presentará por términos pedadógicos.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Lista de subreddits a procesar</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Lista de subreddits a procesar</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>        subreddits <span class="op">=</span> [<span class="st">"AskMen"</span>, <span class="st">"AskWomen"</span>]</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        total_comentarios <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>       </span>
@@ -216,11 +221,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>                            comment.body,</span>
 <span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>                            comment.score,</span>
 <span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>                            datetime.fromtimestamp(comment.created_utc)</span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>                        )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>                        )</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>De esta forma, se recolectaron todos los comentarios de cada publicación del día en ambos subReddits. Además, la variable de tiempo se transformó de unix timestamp a datetime, lo que facilita su interpretación y análisis posterior. Finalmente, estos datos se insertaron en una base de datos dinámica online llamada Neon.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Insertar en la base de datos (ignora duplicados)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Insertar en la base de datos (ignora duplicados)</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                        cursor.execute(<span class="st">"""</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="st">                            INSERT INTO reddit_comments</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="st">                            (subreddit_nombre, submission_autor, submission_id, submission_titulo,</span></span>
@@ -235,12 +240,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>                       </span>
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>                        logger.error(<span class="ss">f"Error procesando comentario </span><span class="sc">{</span>comment<span class="sc">.</span><span class="bu">id</span><span class="sc">}</span><span class="ss">: </span><span class="sc">{</span><span class="bu">str</span>(e)<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>                        <span class="cf">continue</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>                        <span class="cf">continue</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Este proceso de automatización emplea Python para la extracción diaria de datos de Reddit, ejecutándose a través de Render, una plataforma de servicio web. Los datos obtenidos se almacenan inmediatamente en una base de datos dinámica. Para garantizar la disponibilidad continua del servicio y prevenir caídas, se utiliza Uptime Robot como herramienta de monitoreo constante de la página web</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images-2/Automatización.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+<p><img src="images/Automatización.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
 </figure>
 </div>
 </section>
@@ -256,8 +261,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Se borraron comentarios eliminados.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#---- 2. Importar datos brutos ----</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>datos_bruto <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"datos_bruto.csv"</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#---- 2. Importar datos brutos ----</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>datos_bruto <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/datos_bruto.csv"</span>)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#---- 3. Procesamiento de datos brutos ----</span></span>
@@ -280,14 +285,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>         <span class="at">comentario_body =</span> <span class="fu">na_if</span>(comentario_body, <span class="st">"None"</span>))</span>
 <span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>datos_proc <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(datos_proc)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>datos_proc <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(datos_proc)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="procesamiento-de-datos-ii-filtro-por-palabras-clave" class="level3">
 <h3 class="anchored" data-anchor-id="procesamiento-de-datos-ii-filtro-por-palabras-clave">5.2.2 Procesamiento de datos II: filtro por palabras clave</h3>
 <p>Luego, se realizó un filtro a partir de palabras claves relacionadas al género para mantener solo los comentarios que se discuten temas relacionados a las mujeres u hombres; este listado se obtuvo a partir de Coppolillo (2025). Además, se eliminaron los comentarios con menos de 4 palabras debido a la complejidad de analizar estos con herramientas de procesamiento de lenguaje natural. Por último, para mantener la proporción de la actividad inicial de cada subReddit, se ponderó la muestra en una relación 19:81, por lo tanto, la base de datos final quedó con 4455 casos, donde 846 son de r/AskWomen y 3609, de r/AskMen.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#---- 4. Procesamiento de datos: solo género ----</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#---- 4. Procesamiento de datos: solo género ----</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>palabras_genero <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"relationship"</span>, <span class="st">"boy"</span>, <span class="st">"man"</span>, <span class="st">"men"</span>, <span class="st">"boyfriend"</span>, <span class="st">"husband"</span>,</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>              <span class="st">"partner"</span>, <span class="st">"girl"</span>, <span class="st">"woman"</span>, <span class="st">"women"</span>, <span class="st">"girlfriend"</span>, <span class="st">"wife"</span>, <span class="st">"ex"</span>)</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -321,7 +326,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>datos_genero <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(sample_askwomen, sample_askmen)</span>
 <span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(datos_genero, <span class="st">"datos_genero.csv"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(datos_genero, <span class="st">"datos_genero.csv"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="procesamiento-de-datos-iii-modelos-de-procesamiento-de-lenguaje-natural-nlp" class="level3">
@@ -329,7 +334,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>A. Modelo detector de sexismo</strong></p>
 <p>A partir de la base de datos anterior, se proceso esta a partir de un modelo de clasificación de texto que detecta si existe sexismo o no en los comentarios. Para llevar a cabo esto, se realizó un batch processing, obteniendo así la presencia de misoginia y el porcentaje de confianza de esta estimación.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#---- 1. Modelo 1 ----</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#---- 1. Modelo 1 ----</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>classifier <span class="op">=</span> pipeline(</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        <span class="st">"text-classification"</span>,</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>        model<span class="op">=</span><span class="st">"NLP-LTU/bertweet-large-sexism-detector"</span>,</span>
@@ -378,12 +383,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>datos_genero[<span class="st">'categoria_odio'</span>] <span class="op">=</span> [r[<span class="st">'label'</span>] <span class="cf">for</span> r <span class="kw">in</span> resultados_comment]</span>
-<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>datos_genero[<span class="st">'score_odio'</span>] <span class="op">=</span> [r[<span class="st">'score'</span>] <span class="cf">for</span> r <span class="kw">in</span> resultados_comment]</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>datos_genero[<span class="st">'score_odio'</span>] <span class="op">=</span> [r[<span class="st">'score'</span>] <span class="cf">for</span> r <span class="kw">in</span> resultados_comment]</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><strong>B. Modelo clasificador de emociones</strong></p>
 <p>Luego, se proceso a partir de otro modelo que clasifica los comentarios con respecto a las emociones que predominan en este. Se realizó el mismo proceso anterior, obteniendo así la emoción predominante con el porcentaje que refleja la cantidad de presencia de este atributo. La base de datos se guardó finalmente en datos_genero_final, la cual será la que se analizará posteriormente.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">##---- 2. MODELO 2 -----</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">##---- 2. MODELO 2 -----</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>classifier <span class="op">=</span> pipeline(</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>        <span class="st">"text-classification"</span>,</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>        model<span class="op">=</span><span class="st">"bhadresh-savani/distilbert-base-uncased-emotion"</span>,</span>
@@ -429,11 +434,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>datos_genero[<span class="st">'score_principal'</span>] <span class="op">=</span> [<span class="bu">max</span>(r, key<span class="op">=</span><span class="kw">lambda</span> x: x[<span class="st">'score'</span>])[<span class="st">'score'</span>] <span class="cf">for</span> r <span class="kw">in</span> resultados_comment]</span>
 <span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>datos_genero.to_csv(<span class="st">"datos_ask_genero_final.csv"</span>, index<span class="op">=</span><span class="va">False</span>, encoding<span class="op">=</span><span class="st">'utf-8-sig'</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>datos_genero.to_csv(<span class="st">"datos_ask_genero_final.csv"</span>, index<span class="op">=</span><span class="va">False</span>, encoding<span class="op">=</span><span class="st">'utf-8-sig'</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Cabe mencionar que a partir de estas nuevas variables, se consideró que la clasificación de sexismo debe tener un porcentaje mayor al 95% de fiabilidad de predicción y las emociones un 50% para ser consideradas predominantes. Además, se creó una variable dicotómica que agrupaba las emociones positivas (“joy”, “love” y “surprise”) y las negativas (“sadness”, “anger” y “fear”).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>datos_genero_final <span class="ot">&lt;-</span> datos_genero_final <span class="sc">%&gt;%</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>datos_genero_final <span class="ot">&lt;-</span> datos_genero_final <span class="sc">%&gt;%</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">categoria_odio =</span> <span class="fu">case_when</span>(</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    categoria_odio <span class="sc">==</span> <span class="st">"not sexist"</span> <span class="sc">~</span> <span class="dv">0</span>,</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    categoria_odio <span class="sc">==</span> <span class="st">"sexist"</span> <span class="sc">~</span> <span class="dv">1</span>))</span>
@@ -451,7 +456,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    score_principal <span class="sc">&lt;</span> <span class="fl">0.5</span> <span class="sc">~</span> <span class="cn">NA</span>)) <span class="sc">%&gt;%</span></span>
 <span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">emocion_predominante =</span> <span class="fu">case_when</span>(</span>
 <span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>    emocion_principal <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"sadness"</span>, <span class="st">"anger"</span>, <span class="st">"fear"</span>) <span class="sc">~</span> <span class="dv">0</span>,</span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>    emocion_principal <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"joy"</span>,<span class="st">"love"</span>,<span class="st">"surprise"</span>) <span class="sc">~</span> <span class="dv">1</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>    emocion_principal <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"joy"</span>,<span class="st">"love"</span>,<span class="st">"surprise"</span>) <span class="sc">~</span> <span class="dv">1</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 </section>
@@ -469,23 +474,23 @@ Tabla&nbsp;1
 </figcaption>
 <div aria-describedby="tbl-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="iygpvvynmp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#iygpvvynmp table {
+<div id="oighihquvd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#oighihquvd table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#iygpvvynmp thead, #iygpvvynmp tbody, #iygpvvynmp tfoot, #iygpvvynmp tr, #iygpvvynmp td, #iygpvvynmp th {
+#oighihquvd thead, #oighihquvd tbody, #oighihquvd tfoot, #oighihquvd tr, #oighihquvd td, #oighihquvd th {
   border-style: none;
 }
 
-#iygpvvynmp p {
+#oighihquvd p {
   margin: 0;
   padding: 0;
 }
 
-#iygpvvynmp .gt_table {
+#oighihquvd .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -511,12 +516,12 @@ Tabla&nbsp;1
   border-left-color: #D3D3D3;
 }
 
-#iygpvvynmp .gt_caption {
+#oighihquvd .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#iygpvvynmp .gt_title {
+#oighihquvd .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -528,7 +533,7 @@ Tabla&nbsp;1
   border-bottom-width: 0;
 }
 
-#iygpvvynmp .gt_subtitle {
+#oighihquvd .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -540,7 +545,7 @@ Tabla&nbsp;1
   border-top-width: 0;
 }
 
-#iygpvvynmp .gt_heading {
+#oighihquvd .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -552,13 +557,13 @@ Tabla&nbsp;1
   border-right-color: #D3D3D3;
 }
 
-#iygpvvynmp .gt_bottom_border {
+#oighihquvd .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#iygpvvynmp .gt_col_headings {
+#oighihquvd .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -573,7 +578,7 @@ Tabla&nbsp;1
   border-right-color: #D3D3D3;
 }
 
-#iygpvvynmp .gt_col_heading {
+#oighihquvd .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -593,7 +598,7 @@ Tabla&nbsp;1
   overflow-x: hidden;
 }
 
-#iygpvvynmp .gt_column_spanner_outer {
+#oighihquvd .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -605,15 +610,15 @@ Tabla&nbsp;1
   padding-right: 4px;
 }
 
-#iygpvvynmp .gt_column_spanner_outer:first-child {
+#oighihquvd .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#iygpvvynmp .gt_column_spanner_outer:last-child {
+#oighihquvd .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#iygpvvynmp .gt_column_spanner {
+#oighihquvd .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -625,11 +630,11 @@ Tabla&nbsp;1
   width: 100%;
 }
 
-#iygpvvynmp .gt_spanner_row {
+#oighihquvd .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#iygpvvynmp .gt_group_heading {
+#oighihquvd .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -655,7 +660,7 @@ Tabla&nbsp;1
   text-align: left;
 }
 
-#iygpvvynmp .gt_empty_group_heading {
+#oighihquvd .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -670,15 +675,15 @@ Tabla&nbsp;1
   vertical-align: middle;
 }
 
-#iygpvvynmp .gt_from_md > :first-child {
+#oighihquvd .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#iygpvvynmp .gt_from_md > :last-child {
+#oighihquvd .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#iygpvvynmp .gt_row {
+#oighihquvd .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -697,7 +702,7 @@ Tabla&nbsp;1
   overflow-x: hidden;
 }
 
-#iygpvvynmp .gt_stub {
+#oighihquvd .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -710,7 +715,7 @@ Tabla&nbsp;1
   padding-right: 5px;
 }
 
-#iygpvvynmp .gt_stub_row_group {
+#oighihquvd .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -724,15 +729,15 @@ Tabla&nbsp;1
   vertical-align: top;
 }
 
-#iygpvvynmp .gt_row_group_first td {
+#oighihquvd .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#iygpvvynmp .gt_row_group_first th {
+#oighihquvd .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#iygpvvynmp .gt_summary_row {
+#oighihquvd .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -742,16 +747,16 @@ Tabla&nbsp;1
   padding-right: 5px;
 }
 
-#iygpvvynmp .gt_first_summary_row {
+#oighihquvd .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#iygpvvynmp .gt_first_summary_row.thick {
+#oighihquvd .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#iygpvvynmp .gt_last_summary_row {
+#oighihquvd .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -761,7 +766,7 @@ Tabla&nbsp;1
   border-bottom-color: #D3D3D3;
 }
 
-#iygpvvynmp .gt_grand_summary_row {
+#oighihquvd .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -771,7 +776,7 @@ Tabla&nbsp;1
   padding-right: 5px;
 }
 
-#iygpvvynmp .gt_first_grand_summary_row {
+#oighihquvd .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -781,7 +786,7 @@ Tabla&nbsp;1
   border-top-color: #D3D3D3;
 }
 
-#iygpvvynmp .gt_last_grand_summary_row_top {
+#oighihquvd .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -791,11 +796,11 @@ Tabla&nbsp;1
   border-bottom-color: #D3D3D3;
 }
 
-#iygpvvynmp .gt_striped {
+#oighihquvd .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#iygpvvynmp .gt_table_body {
+#oighihquvd .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -804,7 +809,7 @@ Tabla&nbsp;1
   border-bottom-color: #D3D3D3;
 }
 
-#iygpvvynmp .gt_footnotes {
+#oighihquvd .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -818,7 +823,7 @@ Tabla&nbsp;1
   border-right-color: #D3D3D3;
 }
 
-#iygpvvynmp .gt_footnote {
+#oighihquvd .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -827,7 +832,7 @@ Tabla&nbsp;1
   padding-right: 5px;
 }
 
-#iygpvvynmp .gt_sourcenotes {
+#oighihquvd .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -841,7 +846,7 @@ Tabla&nbsp;1
   border-right-color: #D3D3D3;
 }
 
-#iygpvvynmp .gt_sourcenote {
+#oighihquvd .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -849,83 +854,83 @@ Tabla&nbsp;1
   padding-right: 5px;
 }
 
-#iygpvvynmp .gt_left {
+#oighihquvd .gt_left {
   text-align: left;
 }
 
-#iygpvvynmp .gt_center {
+#oighihquvd .gt_center {
   text-align: center;
 }
 
-#iygpvvynmp .gt_right {
+#oighihquvd .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#iygpvvynmp .gt_font_normal {
+#oighihquvd .gt_font_normal {
   font-weight: normal;
 }
 
-#iygpvvynmp .gt_font_bold {
+#oighihquvd .gt_font_bold {
   font-weight: bold;
 }
 
-#iygpvvynmp .gt_font_italic {
+#oighihquvd .gt_font_italic {
   font-style: italic;
 }
 
-#iygpvvynmp .gt_super {
+#oighihquvd .gt_super {
   font-size: 65%;
 }
 
-#iygpvvynmp .gt_footnote_marks {
+#oighihquvd .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#iygpvvynmp .gt_asterisk {
+#oighihquvd .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#iygpvvynmp .gt_indent_1 {
+#oighihquvd .gt_indent_1 {
   text-indent: 5px;
 }
 
-#iygpvvynmp .gt_indent_2 {
+#oighihquvd .gt_indent_2 {
   text-indent: 10px;
 }
 
-#iygpvvynmp .gt_indent_3 {
+#oighihquvd .gt_indent_3 {
   text-indent: 15px;
 }
 
-#iygpvvynmp .gt_indent_4 {
+#oighihquvd .gt_indent_4 {
   text-indent: 20px;
 }
 
-#iygpvvynmp .gt_indent_5 {
+#oighihquvd .gt_indent_5 {
   text-indent: 25px;
 }
 
-#iygpvvynmp .katex-display {
+#oighihquvd .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#iygpvvynmp div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#oighihquvd div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 
-<table class="gt_table do-not-create-environment caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_heading header">
-<th colspan="2" class="gt_heading gt_title gt_font_normal"><strong>Tabla 1: Variables incluidas en el análisis: Definición de cada variable del dataset procesado</strong></th>
+<td colspan="2" class="gt_heading gt_title gt_font_normal"><strong>Tabla 1: Variables incluidas en el análisis: Definición de cada variable del dataset procesado</strong></td>
 </tr>
 <tr class="gt_heading even">
-<th colspan="2" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Definición de cada variable</th>
+<td colspan="2" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Definición de cada variable</td>
 </tr>
 <tr class="gt_col_headings header">
 <th id="Variable" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Variable</th>
@@ -1042,23 +1047,23 @@ Tabla&nbsp;2
 </figcaption>
 <div aria-describedby="tbl-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="snjjxijwyp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#snjjxijwyp table {
+<div id="euixoqaskf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#euixoqaskf table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#snjjxijwyp thead, #snjjxijwyp tbody, #snjjxijwyp tfoot, #snjjxijwyp tr, #snjjxijwyp td, #snjjxijwyp th {
+#euixoqaskf thead, #euixoqaskf tbody, #euixoqaskf tfoot, #euixoqaskf tr, #euixoqaskf td, #euixoqaskf th {
   border-style: none;
 }
 
-#snjjxijwyp p {
+#euixoqaskf p {
   margin: 0;
   padding: 0;
 }
 
-#snjjxijwyp .gt_table {
+#euixoqaskf .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1084,12 +1089,12 @@ Tabla&nbsp;2
   border-left-color: #D3D3D3;
 }
 
-#snjjxijwyp .gt_caption {
+#euixoqaskf .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#snjjxijwyp .gt_title {
+#euixoqaskf .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1101,7 +1106,7 @@ Tabla&nbsp;2
   border-bottom-width: 0;
 }
 
-#snjjxijwyp .gt_subtitle {
+#euixoqaskf .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1113,7 +1118,7 @@ Tabla&nbsp;2
   border-top-width: 0;
 }
 
-#snjjxijwyp .gt_heading {
+#euixoqaskf .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1125,13 +1130,13 @@ Tabla&nbsp;2
   border-right-color: #D3D3D3;
 }
 
-#snjjxijwyp .gt_bottom_border {
+#euixoqaskf .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#snjjxijwyp .gt_col_headings {
+#euixoqaskf .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1146,7 +1151,7 @@ Tabla&nbsp;2
   border-right-color: #D3D3D3;
 }
 
-#snjjxijwyp .gt_col_heading {
+#euixoqaskf .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1166,7 +1171,7 @@ Tabla&nbsp;2
   overflow-x: hidden;
 }
 
-#snjjxijwyp .gt_column_spanner_outer {
+#euixoqaskf .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1178,15 +1183,15 @@ Tabla&nbsp;2
   padding-right: 4px;
 }
 
-#snjjxijwyp .gt_column_spanner_outer:first-child {
+#euixoqaskf .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#snjjxijwyp .gt_column_spanner_outer:last-child {
+#euixoqaskf .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#snjjxijwyp .gt_column_spanner {
+#euixoqaskf .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1198,11 +1203,11 @@ Tabla&nbsp;2
   width: 100%;
 }
 
-#snjjxijwyp .gt_spanner_row {
+#euixoqaskf .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#snjjxijwyp .gt_group_heading {
+#euixoqaskf .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1228,7 +1233,7 @@ Tabla&nbsp;2
   text-align: left;
 }
 
-#snjjxijwyp .gt_empty_group_heading {
+#euixoqaskf .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1243,15 +1248,15 @@ Tabla&nbsp;2
   vertical-align: middle;
 }
 
-#snjjxijwyp .gt_from_md > :first-child {
+#euixoqaskf .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#snjjxijwyp .gt_from_md > :last-child {
+#euixoqaskf .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#snjjxijwyp .gt_row {
+#euixoqaskf .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1270,7 +1275,7 @@ Tabla&nbsp;2
   overflow-x: hidden;
 }
 
-#snjjxijwyp .gt_stub {
+#euixoqaskf .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1283,7 +1288,7 @@ Tabla&nbsp;2
   padding-right: 5px;
 }
 
-#snjjxijwyp .gt_stub_row_group {
+#euixoqaskf .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1297,15 +1302,15 @@ Tabla&nbsp;2
   vertical-align: top;
 }
 
-#snjjxijwyp .gt_row_group_first td {
+#euixoqaskf .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#snjjxijwyp .gt_row_group_first th {
+#euixoqaskf .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#snjjxijwyp .gt_summary_row {
+#euixoqaskf .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1315,16 +1320,16 @@ Tabla&nbsp;2
   padding-right: 5px;
 }
 
-#snjjxijwyp .gt_first_summary_row {
+#euixoqaskf .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#snjjxijwyp .gt_first_summary_row.thick {
+#euixoqaskf .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#snjjxijwyp .gt_last_summary_row {
+#euixoqaskf .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1334,7 +1339,7 @@ Tabla&nbsp;2
   border-bottom-color: #D3D3D3;
 }
 
-#snjjxijwyp .gt_grand_summary_row {
+#euixoqaskf .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1344,7 +1349,7 @@ Tabla&nbsp;2
   padding-right: 5px;
 }
 
-#snjjxijwyp .gt_first_grand_summary_row {
+#euixoqaskf .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1354,7 +1359,7 @@ Tabla&nbsp;2
   border-top-color: #D3D3D3;
 }
 
-#snjjxijwyp .gt_last_grand_summary_row_top {
+#euixoqaskf .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1364,11 +1369,11 @@ Tabla&nbsp;2
   border-bottom-color: #D3D3D3;
 }
 
-#snjjxijwyp .gt_striped {
+#euixoqaskf .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#snjjxijwyp .gt_table_body {
+#euixoqaskf .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1377,7 +1382,7 @@ Tabla&nbsp;2
   border-bottom-color: #D3D3D3;
 }
 
-#snjjxijwyp .gt_footnotes {
+#euixoqaskf .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1391,7 +1396,7 @@ Tabla&nbsp;2
   border-right-color: #D3D3D3;
 }
 
-#snjjxijwyp .gt_footnote {
+#euixoqaskf .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1400,7 +1405,7 @@ Tabla&nbsp;2
   padding-right: 5px;
 }
 
-#snjjxijwyp .gt_sourcenotes {
+#euixoqaskf .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1414,7 +1419,7 @@ Tabla&nbsp;2
   border-right-color: #D3D3D3;
 }
 
-#snjjxijwyp .gt_sourcenote {
+#euixoqaskf .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1422,83 +1427,83 @@ Tabla&nbsp;2
   padding-right: 5px;
 }
 
-#snjjxijwyp .gt_left {
+#euixoqaskf .gt_left {
   text-align: left;
 }
 
-#snjjxijwyp .gt_center {
+#euixoqaskf .gt_center {
   text-align: center;
 }
 
-#snjjxijwyp .gt_right {
+#euixoqaskf .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#snjjxijwyp .gt_font_normal {
+#euixoqaskf .gt_font_normal {
   font-weight: normal;
 }
 
-#snjjxijwyp .gt_font_bold {
+#euixoqaskf .gt_font_bold {
   font-weight: bold;
 }
 
-#snjjxijwyp .gt_font_italic {
+#euixoqaskf .gt_font_italic {
   font-style: italic;
 }
 
-#snjjxijwyp .gt_super {
+#euixoqaskf .gt_super {
   font-size: 65%;
 }
 
-#snjjxijwyp .gt_footnote_marks {
+#euixoqaskf .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#snjjxijwyp .gt_asterisk {
+#euixoqaskf .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#snjjxijwyp .gt_indent_1 {
+#euixoqaskf .gt_indent_1 {
   text-indent: 5px;
 }
 
-#snjjxijwyp .gt_indent_2 {
+#euixoqaskf .gt_indent_2 {
   text-indent: 10px;
 }
 
-#snjjxijwyp .gt_indent_3 {
+#euixoqaskf .gt_indent_3 {
   text-indent: 15px;
 }
 
-#snjjxijwyp .gt_indent_4 {
+#euixoqaskf .gt_indent_4 {
   text-indent: 20px;
 }
 
-#snjjxijwyp .gt_indent_5 {
+#euixoqaskf .gt_indent_5 {
   text-indent: 25px;
 }
 
-#snjjxijwyp .katex-display {
+#euixoqaskf .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#snjjxijwyp div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#euixoqaskf div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 
-<table class="gt_table do-not-create-environment caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_heading header">
-<th colspan="6" class="gt_heading gt_title gt_font_normal">Tabla 2: Características descriptivas de la muestra final</th>
+<td colspan="6" class="gt_heading gt_title gt_font_normal">Tabla 2: Características descriptivas de la muestra final</td>
 </tr>
 <tr class="gt_heading even">
-<th colspan="6" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Distribución de comentarios, autores, sexismo y emociones por subreddit</th>
+<td colspan="6" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Distribución de comentarios, autores, sexismo y emociones por subreddit</td>
 </tr>
 <tr class="gt_col_headings header">
 <th id="subreddit_nombre" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Subreddit</th>
@@ -1549,23 +1554,23 @@ Tabla&nbsp;3
 </figcaption>
 <div aria-describedby="tbl-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="yzxwbjzcuz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#yzxwbjzcuz table {
+<div id="rwtkxjvskb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#rwtkxjvskb table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#yzxwbjzcuz thead, #yzxwbjzcuz tbody, #yzxwbjzcuz tfoot, #yzxwbjzcuz tr, #yzxwbjzcuz td, #yzxwbjzcuz th {
+#rwtkxjvskb thead, #rwtkxjvskb tbody, #rwtkxjvskb tfoot, #rwtkxjvskb tr, #rwtkxjvskb td, #rwtkxjvskb th {
   border-style: none;
 }
 
-#yzxwbjzcuz p {
+#rwtkxjvskb p {
   margin: 0;
   padding: 0;
 }
 
-#yzxwbjzcuz .gt_table {
+#rwtkxjvskb .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1591,12 +1596,12 @@ Tabla&nbsp;3
   border-left-color: #D3D3D3;
 }
 
-#yzxwbjzcuz .gt_caption {
+#rwtkxjvskb .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#yzxwbjzcuz .gt_title {
+#rwtkxjvskb .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1608,7 +1613,7 @@ Tabla&nbsp;3
   border-bottom-width: 0;
 }
 
-#yzxwbjzcuz .gt_subtitle {
+#rwtkxjvskb .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1620,7 +1625,7 @@ Tabla&nbsp;3
   border-top-width: 0;
 }
 
-#yzxwbjzcuz .gt_heading {
+#rwtkxjvskb .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1632,13 +1637,13 @@ Tabla&nbsp;3
   border-right-color: #D3D3D3;
 }
 
-#yzxwbjzcuz .gt_bottom_border {
+#rwtkxjvskb .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#yzxwbjzcuz .gt_col_headings {
+#rwtkxjvskb .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1653,7 +1658,7 @@ Tabla&nbsp;3
   border-right-color: #D3D3D3;
 }
 
-#yzxwbjzcuz .gt_col_heading {
+#rwtkxjvskb .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1673,7 +1678,7 @@ Tabla&nbsp;3
   overflow-x: hidden;
 }
 
-#yzxwbjzcuz .gt_column_spanner_outer {
+#rwtkxjvskb .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1685,15 +1690,15 @@ Tabla&nbsp;3
   padding-right: 4px;
 }
 
-#yzxwbjzcuz .gt_column_spanner_outer:first-child {
+#rwtkxjvskb .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#yzxwbjzcuz .gt_column_spanner_outer:last-child {
+#rwtkxjvskb .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#yzxwbjzcuz .gt_column_spanner {
+#rwtkxjvskb .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1705,11 +1710,11 @@ Tabla&nbsp;3
   width: 100%;
 }
 
-#yzxwbjzcuz .gt_spanner_row {
+#rwtkxjvskb .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#yzxwbjzcuz .gt_group_heading {
+#rwtkxjvskb .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1735,7 +1740,7 @@ Tabla&nbsp;3
   text-align: left;
 }
 
-#yzxwbjzcuz .gt_empty_group_heading {
+#rwtkxjvskb .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1750,15 +1755,15 @@ Tabla&nbsp;3
   vertical-align: middle;
 }
 
-#yzxwbjzcuz .gt_from_md > :first-child {
+#rwtkxjvskb .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#yzxwbjzcuz .gt_from_md > :last-child {
+#rwtkxjvskb .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#yzxwbjzcuz .gt_row {
+#rwtkxjvskb .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1777,7 +1782,7 @@ Tabla&nbsp;3
   overflow-x: hidden;
 }
 
-#yzxwbjzcuz .gt_stub {
+#rwtkxjvskb .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1790,7 +1795,7 @@ Tabla&nbsp;3
   padding-right: 5px;
 }
 
-#yzxwbjzcuz .gt_stub_row_group {
+#rwtkxjvskb .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1804,15 +1809,15 @@ Tabla&nbsp;3
   vertical-align: top;
 }
 
-#yzxwbjzcuz .gt_row_group_first td {
+#rwtkxjvskb .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#yzxwbjzcuz .gt_row_group_first th {
+#rwtkxjvskb .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#yzxwbjzcuz .gt_summary_row {
+#rwtkxjvskb .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1822,16 +1827,16 @@ Tabla&nbsp;3
   padding-right: 5px;
 }
 
-#yzxwbjzcuz .gt_first_summary_row {
+#rwtkxjvskb .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#yzxwbjzcuz .gt_first_summary_row.thick {
+#rwtkxjvskb .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#yzxwbjzcuz .gt_last_summary_row {
+#rwtkxjvskb .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1841,7 +1846,7 @@ Tabla&nbsp;3
   border-bottom-color: #D3D3D3;
 }
 
-#yzxwbjzcuz .gt_grand_summary_row {
+#rwtkxjvskb .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1851,7 +1856,7 @@ Tabla&nbsp;3
   padding-right: 5px;
 }
 
-#yzxwbjzcuz .gt_first_grand_summary_row {
+#rwtkxjvskb .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1861,7 +1866,7 @@ Tabla&nbsp;3
   border-top-color: #D3D3D3;
 }
 
-#yzxwbjzcuz .gt_last_grand_summary_row_top {
+#rwtkxjvskb .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1871,11 +1876,11 @@ Tabla&nbsp;3
   border-bottom-color: #D3D3D3;
 }
 
-#yzxwbjzcuz .gt_striped {
+#rwtkxjvskb .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#yzxwbjzcuz .gt_table_body {
+#rwtkxjvskb .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1884,7 +1889,7 @@ Tabla&nbsp;3
   border-bottom-color: #D3D3D3;
 }
 
-#yzxwbjzcuz .gt_footnotes {
+#rwtkxjvskb .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1898,7 +1903,7 @@ Tabla&nbsp;3
   border-right-color: #D3D3D3;
 }
 
-#yzxwbjzcuz .gt_footnote {
+#rwtkxjvskb .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1907,7 +1912,7 @@ Tabla&nbsp;3
   padding-right: 5px;
 }
 
-#yzxwbjzcuz .gt_sourcenotes {
+#rwtkxjvskb .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1921,7 +1926,7 @@ Tabla&nbsp;3
   border-right-color: #D3D3D3;
 }
 
-#yzxwbjzcuz .gt_sourcenote {
+#rwtkxjvskb .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1929,80 +1934,80 @@ Tabla&nbsp;3
   padding-right: 5px;
 }
 
-#yzxwbjzcuz .gt_left {
+#rwtkxjvskb .gt_left {
   text-align: left;
 }
 
-#yzxwbjzcuz .gt_center {
+#rwtkxjvskb .gt_center {
   text-align: center;
 }
 
-#yzxwbjzcuz .gt_right {
+#rwtkxjvskb .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#yzxwbjzcuz .gt_font_normal {
+#rwtkxjvskb .gt_font_normal {
   font-weight: normal;
 }
 
-#yzxwbjzcuz .gt_font_bold {
+#rwtkxjvskb .gt_font_bold {
   font-weight: bold;
 }
 
-#yzxwbjzcuz .gt_font_italic {
+#rwtkxjvskb .gt_font_italic {
   font-style: italic;
 }
 
-#yzxwbjzcuz .gt_super {
+#rwtkxjvskb .gt_super {
   font-size: 65%;
 }
 
-#yzxwbjzcuz .gt_footnote_marks {
+#rwtkxjvskb .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#yzxwbjzcuz .gt_asterisk {
+#rwtkxjvskb .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#yzxwbjzcuz .gt_indent_1 {
+#rwtkxjvskb .gt_indent_1 {
   text-indent: 5px;
 }
 
-#yzxwbjzcuz .gt_indent_2 {
+#rwtkxjvskb .gt_indent_2 {
   text-indent: 10px;
 }
 
-#yzxwbjzcuz .gt_indent_3 {
+#rwtkxjvskb .gt_indent_3 {
   text-indent: 15px;
 }
 
-#yzxwbjzcuz .gt_indent_4 {
+#rwtkxjvskb .gt_indent_4 {
   text-indent: 20px;
 }
 
-#yzxwbjzcuz .gt_indent_5 {
+#rwtkxjvskb .gt_indent_5 {
   text-indent: 25px;
 }
 
-#yzxwbjzcuz .katex-display {
+#rwtkxjvskb .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#yzxwbjzcuz div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#rwtkxjvskb div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 
-<table class="gt_table do-not-create-environment caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_heading header">
-<th colspan="10" class="gt_heading gt_title gt_font_normal gt_bottom_border">Tabla 3: Test de diferencia de proporciones para comentarios sexistas (H1)</th>
+<td colspan="10" class="gt_heading gt_title gt_font_normal gt_bottom_border">Tabla 3: Test de diferencia de proporciones para comentarios sexistas (H1)</td>
 </tr>
 <tr class="gt_col_headings even">
 <th id="Method" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Método</th>
@@ -2518,13 +2523,13 @@ Tabla&nbsp;4
 }
 </style>
 
-<table class="gt_table do-not-create-environment caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_heading header">
-<th colspan="9" class="gt_heading gt_title gt_font_normal">Tabla 4: Diferencia de medias en la actividad según tipo de comentario (H2a)</th>
+<td colspan="9" class="gt_heading gt_title gt_font_normal">Tabla 4: Diferencia de medias en la actividad según tipo de comentario (H2a)</td>
 </tr>
 <tr class="gt_heading even">
-<th colspan="9" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Comparación de la actividad entre comentarios sexistas y no sexistas</th>
+<td colspan="9" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Comparación de la actividad entre comentarios sexistas y no sexistas</td>
 </tr>
 <tr class="gt_col_headings header">
 <th id="Method" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Method</th>
@@ -3038,13 +3043,13 @@ Tabla&nbsp;5
 }
 </style>
 
-<table class="gt_table do-not-create-environment caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_heading header">
-<th colspan="9" class="gt_heading gt_title gt_font_normal">Tabla 5: Diferencia de medias en el puntaje de comentarios según presencia de sexismo (H2b)</th>
+<td colspan="9" class="gt_heading gt_title gt_font_normal">Tabla 5: Diferencia de medias en el puntaje de comentarios según presencia de sexismo (H2b)</td>
 </tr>
 <tr class="gt_heading even">
-<th colspan="9" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Comparación del puntaje entre comentarios sexistas y no sexistas</th>
+<td colspan="9" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Comparación del puntaje entre comentarios sexistas y no sexistas</td>
 </tr>
 <tr class="gt_col_headings header">
 <th id="Method" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Method</th>
@@ -3558,13 +3563,13 @@ Tabla&nbsp;6
 }
 </style>
 
-<table class="gt_table do-not-create-environment caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_heading header">
-<th colspan="10" class="gt_heading gt_title gt_font_normal">Tabla 6: Test de diferencia de proporciones para emociones negativas entre subreddits (H3</th>
+<td colspan="10" class="gt_heading gt_title gt_font_normal">Tabla 6: Test de diferencia de proporciones para emociones negativas entre subreddits (H3</td>
 </tr>
 <tr class="gt_heading even">
-<th colspan="10" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Resultados del test de diferencia de proporciones</th>
+<td colspan="10" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Resultados del test de diferencia de proporciones</td>
 </tr>
 <tr class="gt_col_headings header">
 <th id="Método" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Método</th>
@@ -4080,13 +4085,13 @@ Tabla&nbsp;7
 }
 </style>
 
-<table class="gt_table do-not-create-environment caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_heading header">
-<th colspan="9" class="gt_heading gt_title gt_font_normal">Tabla 7: Modelo logit de probabilidad de comentario misógino según tipo de emoción (H4)</th>
+<td colspan="9" class="gt_heading gt_title gt_font_normal">Tabla 7: Modelo logit de probabilidad de comentario misógino según tipo de emoción (H4)</td>
 </tr>
 <tr class="gt_heading even">
-<th colspan="9" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Probabilidad de comentario sexista según emoción positiva</th>
+<td colspan="9" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Probabilidad de comentario sexista según emoción positiva</td>
 </tr>
 <tr class="gt_col_headings header">
 <th id="Predictor" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Predictor</th>
@@ -4229,13 +4234,14 @@ Figura&nbsp;6
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

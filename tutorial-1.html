@@ -1,0 +1,2328 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Felipe Vega G. &amp; Cristóbal Mejías G.">
+<meta name="dcterms.date" content="2025-10-03">
+
+<title>Lenguaje y género en Reddit: Contrastes entre r/AskMen y r/AskWomen</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="tutorial-1_files/libs/clipboard/clipboard.min.js"></script>
+<script src="tutorial-1_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="tutorial-1_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="tutorial-1_files/libs/quarto-html/popper.min.js"></script>
+<script src="tutorial-1_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="tutorial-1_files/libs/quarto-html/anchor.min.js"></script>
+<link href="tutorial-1_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="tutorial-1_files/libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="tutorial-1_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="tutorial-1_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="tutorial-1_files/libs/bootstrap/bootstrap-efbb37e9afcc02144ebbc7afd12a776f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<style>p { text-align: justify; }</style>
+
+
+<link rel="stylesheet" href="styles-tutorial.css">
+</head>
+
+<body class="fullcontent quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Lenguaje y género en Reddit: Contrastes entre r/AskMen y r/AskWomen</h1>
+<p class="subtitle lead">Métodos Computacionales para las Ciencias Sociales<br>Profesor: Klaus Lehmann M.<br>Ayudante: Matías Gallardo V.</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Felipe Vega G. &amp; Cristóbal Mejías G. </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 3, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introducción" class="level1">
+<h1>Introducción</h1>
+<p>Reddit es una de las plataformas digitales más relevantes para la comunicación y discusión dentro de la Generación Z. Esta ofrece comunidades específicas (subreddits) que permiten al usuario crear, compartir y discutir contenido, y un ambiente de relativo anonimato donde se puede interactuar con contenido sensible y delicado. Siguiendo lo anterior, Reddit se vuelve una fuente valiosa de información sobre experiencias y discusiones en torno a diversas temáticas (Stang et al, 2025).</p>
+<p>En este sentido, entendiendo que hoy en día la mayoría de las interacciones sociales se dan de forma digital, tanto el género como la sexualidad se comienzan a construir dentro de este ambiente. Así, los sujetos viven procesos de validación, pugna y normalización a través de las interacciones online con un otro globalizado. En consecuencia, el lenguaje, como expresión identitaria, también se construye a través de este medio, produciendo y reproduciendo roles y estereotipos de género. Esto refuerza las normas sociales y expectativas vinculadas a la identidad de género. (Criado et al, 2021; Sawicki &amp; Solska, 2024; Scholz et al, 2025).</p>
+<p>Con respecto a lo anterior, la relevancia sociológica de estudiar el género a través del lenguaje y las interacciones dentro de una plataforma digital como Reddit surge debido a la importancia que cumplen las redes sociales como principal espacio de socialización y construcción del género hoy en día. Además, este permite identificar y examinar discursos sesgados y dominantes, como también la producción y reproducción de estereotipos y roles. Así, se logra visibilizar la construcción del género a través de patrones sociolingüísticos y comunicativos. Por último, posibilita distinguir los diferentes perfiles de usuarios al interactuar con contenido propiamente ligado al género. A partir de esto, se formuló la siguiente pregunta de investigación: ¿Qué diferencias discursivas existen en torno al género en los comentarios de los usuarios de los subreddit r/AskMen y r/AskWomen en Reddit?</p>
+<p>En el transcurso de la investigación se extraerá información de los subreddits de r/AskMen y r/AskWomen. Estos datos permiten, en primer lugar, una comparación y análisis de contenido a partir del género; en segundo lugar, un análisis cruzado, es decir, de qué se habla con respecto al género opuesto en cada subreddit; y, por último, un análisis de los diferentes perfiles de usuarios que interactúan en estos foros con respecto a su género e identidad. De esta forma, el estudio busca no solo identificar diferencias en los discursos de género entre ambos subreddits, sino también analizar las representaciones del género opuesto y los perfiles sociolingüísticos de los usuarios que participan en estas comunidades.</p>
+</section>
+<section id="fuente-de-información" class="level1">
+<h1>Fuente de información</h1>
+<p>La fuente de información donde se extrajeron los datos fue Reddit, específicamente los subreddits de r/AskMen y r/AskWomen.</p>
+<p>AskMen fue creado el 30 de agosto de 2010. Es un espacio con alrededor de 2 millones de miembros y una participación activa de 41 mil contribuciones semanales. Su lema es “a place to discuss men’s experience”, demostrando ser un lugar para discutir y compartir vivencias desde la perspectiva masculina.</p>
+<p>AskWomen, creado el 17 de julio de 2010, cuenta con más de 946 mil suscriptores y alrededor de 14 mil usuarios activos. Su propósito declarado es ofrecer un espacio donde las mujeres puedan responder con comodidad y sinceridad a preguntas sobre sus pensamientos, vidas y experiencias. Se enfatiza en el respeto y la ausencia de juicios, lo que lo convierte en un entorno distinto al de AskMen, con un enfoque más regulado hacia el tono y los temas de discusión.</p>
+<p>Para la extracción de información de estos subreddits se utilizó la API de Reddit, mediante la librería PRAW. Esta herramienta permite automatizar la recolección de publicaciones y comentarios, asegurando un volumen considerable de datos y facilitando su análisis.</p>
+</section>
+<section id="tutorial" class="level1">
+<h1>Tutorial</h1>
+<section id="extracción-de-información-api-de-reddit" class="level2">
+<h2 class="anchored" data-anchor-id="extracción-de-información-api-de-reddit">Extracción de información: API de Reddit</h2>
+<p>Como primer paso, fue necesario inscribir una aplicación para poder utilizar la API de Reddit. En el siguiente <a href="https://rymur.github.io/setup">enlace</a> se encuentra un tutorial detallado sobre cómo crear un app. A continuación, se muestra un ejemplo:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/app_reddit.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+</section>
+<section id="autenticación-con-praw" class="level2">
+<h2 class="anchored" data-anchor-id="autenticación-con-praw">Autenticación con PRAW</h2>
+<p>Para interactuar con la API se trabajará en python, aprovechando las herramientas que ofrece este lenguaje. En este caso, se usa Positron como entorno de trabajo.</p>
+<p>El primer paso consiste en importar las librerías necesarias: praw, datetime, pandas, dotenv y os.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> praw</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd <span class="co"># para manipulación de dataframes</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv <span class="co"># cargar variables de ambiente</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os <span class="co"># cargar variables de ambiente</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Además, se requiere crear un text file con extensión .env donde se almacenan las credenciales de acceso. Si las variables dentro de este archivo se cargan correctamente, la función load_dotenv() devuelve True.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>load_dotenv()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Con lo anterior listo, se definen las variables que contienen los tokens del archivo .env. Las credenciales necesarias para la autenticación son: client_id, client_secret y user_agent.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>client_id <span class="op">=</span> os.getenv(<span class="st">'CLIENT_ID'</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>client_secret <span class="op">=</span> os.getenv(<span class="st">'CLIENT_SECRET'</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>username <span class="op">=</span> os.getenv(<span class="st">'USERNAME'</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>password <span class="op">=</span> os.getenv(<span class="st">'PASSWORD'</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>user_agent <span class="op">=</span> os.getenv(<span class="st">'USER_AGENT'</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>auth_url <span class="op">=</span> <span class="st">"https://www.reddit.com/api/v1/access_token"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Finalmente, mediante la función reddit de praw, se realiza la conexión con la API utilizando las credenciales guardadas.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>reddit <span class="op">=</span> praw.Reddit(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    client_id<span class="op">=</span>client_id,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    client_secret<span class="op">=</span>client_secret,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    user_agent<span class="op">=</span>user_agent</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="proceso-de-extracción-de-datos" class="level2">
+<h2 class="anchored" data-anchor-id="proceso-de-extracción-de-datos">Proceso de extracción de datos</h2>
+<p>La extracción de datos se hizo a partir del los subreddits de r/AskMen y r/AskWomen. Para asegurar una cantidad de datos robusta, se sugiere una revisión sistemática de los subreddit y establecer criterios de extracción de datos.</p>
+<section id="proceso-de-extracción-de-datos-raskmen" class="level3">
+<h3 class="anchored" data-anchor-id="proceso-de-extracción-de-datos-raskmen">Proceso de extracción de datos: r/AskMen</h3>
+<p>En primer lugar, se creó una variable que contiene el subreddit de donde se quiere extraer la información y una lista vacía para contener los comentarios de cada publicación</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>subreddit_askmen <span class="op">=</span> reddit.subreddit(<span class="st">"AskMen"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>comentarios_askmen <span class="op">=</span> []</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Posteriormente, se creó un for anidado. El primero refiere a la publicación, las cuales se filtraron las top por día, con un límite de 1000. El segundo, corresponde a los comentarios de cada publicación; para esto, se tuvo que añadir una línea de código para también extraer los códigos que están abajo del view more.</p>
+<p>De esta forma, se recolectaron todos los comentarios de cada publicación del día en el subreddit. Además, la variable de tiempo se transformó de unix timestamp a datetime, lo que facilita su interpretación y análisis posterior.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> submission <span class="kw">in</span> subreddit_askmen.top(time_filter<span class="op">=</span><span class="st">"day"</span>, limit<span class="op">=</span><span class="dv">1000</span>):</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    submission.comments.replace_more(limit<span class="op">=</span><span class="va">None</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> comment <span class="kw">in</span> submission.comments:</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        askmen <span class="op">=</span> [</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>            subreddit_askmen,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>            submission.author,</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>            submission.<span class="bu">id</span>,</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>            submission.title,</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>            submission.num_comments,</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>            submission.over_18,                </span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>            submission.score,              </span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>            comment.author,</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>            comment.<span class="bu">id</span>,</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>            comment.body,</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>            comment.score,</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>            datetime.fromtimestamp(comment.created_utc)                    </span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>        ]</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>        comentarios_askmen.append(askmen)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Finalmente, se creó un dataframe que contiene las variables extraídas, asignándoles nombres para su identificación. A cada base de datos diaria se les asignó un nombre con el formato “nombresubreddit_fecha”, lo que permite organizarlas por día. Para efectos de este tutorial, los nombres de las bases de datos serán fecha “xxxx”.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>askmen_xxxx <span class="op">=</span> pd.DataFrame(</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    comentarios_askmen,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span>[<span class="st">"subreddit_nombre"</span>, <span class="st">"submission_autor"</span>, <span class="st">"submission_id"</span>, <span class="st">"submission_titulo"</span>,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>     <span class="st">"submission_numcom"</span>, <span class="st">"submission_NSFW"</span>, <span class="st">"submission_puntaje"</span>,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>     <span class="st">"comentario_autor"</span>, <span class="st">"comentario_id"</span>, <span class="st">"comentario_body"</span>, <span class="st">"comentario_puntaje"</span>, <span class="st">"comentario_fecha"</span>]</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>askmen_xxxx.to_csv(<span class="st">"askmen_xxxx.csv"</span>, index<span class="op">=</span><span class="va">False</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="proceso-de-extracción-de-datos-raskwomen" class="level3">
+<h3 class="anchored" data-anchor-id="proceso-de-extracción-de-datos-raskwomen">Proceso de extracción de datos: r/AskWomen</h3>
+<p>El procedimiento se repitió de la misma manera, solamente cambiando el subreddit a r/AskWomen.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>subreddit_askwomen <span class="op">=</span> reddit.subreddit(<span class="st">"AskWomen"</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>comentarios_askwomen <span class="op">=</span> []</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> submission <span class="kw">in</span> subreddit_askwomen.top(time_filter<span class="op">=</span><span class="st">"day"</span>, limit<span class="op">=</span><span class="dv">1000</span>):</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    submission.comments.replace_more(limit<span class="op">=</span><span class="va">None</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> comment <span class="kw">in</span> submission.comments:</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>        askwomen <span class="op">=</span> [</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>            subreddit_askwomen,</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>            submission.author,</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>            submission.<span class="bu">id</span>,</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>            submission.title,</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>            submission.num_comments,</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>            submission.over_18,                </span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>            submission.score,              </span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>            comment.author,</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>            comment.<span class="bu">id</span>,</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>            comment.body,</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>            comment.score,</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>            datetime.fromtimestamp(comment.created_utc)                    </span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>        ]</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>        comentarios_askwomen.append(askwomen)</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>askwomen_xxxx <span class="op">=</span> pd.DataFrame(</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>    comentarios_askwomen,</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span>[<span class="st">"subreddit_nombre"</span>, <span class="st">"submission_autor"</span>, <span class="st">"submission_id"</span>, <span class="st">"submission_titulo"</span>,</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>     <span class="st">"submission_numcom"</span>, <span class="st">"submission_NSFW"</span>, <span class="st">"submission_puntaje"</span>,</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>     <span class="st">"comentario_autor"</span>, <span class="st">"comentario_id"</span>, <span class="st">"comentario_body"</span>, <span class="st">"comentario_puntaje"</span>, <span class="st">"comentario_fecha"</span>]</span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>askwomen_xxxx.to_csv(<span class="st">"askwomen_xxxx.csv"</span>, index<span class="op">=</span><span class="va">False</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</section>
+<section id="unión-de-bbdd-para-procesamiento" class="level2">
+<h2 class="anchored" data-anchor-id="unión-de-bbdd-para-procesamiento">Unión de BBDD para procesamiento</h2>
+<p>A partir de este punto se comienza a trabajar con R, con el objetivo de facilitar la manipulación y visualización de datos. Para ello, se requiere instalar las liberías: dplyr, readr, tidyr, ggplot2, stringr y gt. Además, se evita la notación científica en los resultados y se limpia el entorno de trabajo.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)     <span class="co"># Manipular datos </span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)     <span class="co"># Leer datos </span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)     <span class="co"># Tratamiento datos</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)   <span class="co"># Gráficos</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)   <span class="co"># Trabajar con texto</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)        <span class="co"># Tablas</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Posteriormente, se cargan las BBDD guardadas en formato .csv y se unen todas en un único archivo denominado datos_ask. En caso de contar con más de un día de extracción, cada nueva base se debe ir incorporando de la misma manera. Finalmente, la base consolidada se guarda en un archivo con la función write_csv, lo que permite avanzar hacia el procesamiento de datos.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>askmen_xxxx <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"askmen_xxxx.csv"</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>askwomen_xxxx <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"askwomen_xxxx.csv"</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>datos_ask <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(askmen_xxxx, askwomen_xxxx)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(datos_ask, <span class="st">"datos_ask.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="procesamiento-de-bbdd-en-r" class="level2">
+<h2 class="anchored" data-anchor-id="procesamiento-de-bbdd-en-r">Procesamiento de BBDD en R</h2>
+<p>A partir de la base de datos consolidada se generó una versión procesada con nombre datos_ask_proc. En esta etapa se realizaron distintas transformaciones para mejorar la calidad de la información:</p>
+<ol type="i">
+<li>la variable submission_NSFW fue recodificada de valores lógicos (False y True) a 0 y 1.</li>
+<li>la variable comentario_fecha se separó en fecha y hora, y se filtraron los días con menos de 100 observaciones.</li>
+<li>se filtraron los días con menos de 100 observaciones.</li>
+<li>Se filtraron las publicaciones que no obtuvieron comentarios.</li>
+<li>La variable fecha se reconoce como tipo date.</li>
+</ol>
+<p>El resultado de este procesamiento corresponde a una base depurada, almacenada como datos_ask_proc.csv, que será la BBDD principal para el análisis posterior.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>datos_ask_proc <span class="ot">&lt;-</span> datos_ask <span class="sc">%&gt;%</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">submission_NSFW =</span> <span class="fu">case_when</span>(</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    submission_NSFW <span class="sc">==</span> <span class="st">"FALSE"</span> <span class="sc">~</span> <span class="dv">0</span>,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    submission_NSFW <span class="sc">==</span> <span class="st">"TRUE"</span> <span class="sc">~</span> <span class="dv">1</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(comentario_fecha, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"comentario_fecha"</span>, <span class="st">"comentario_hora"</span>), <span class="at">sep =</span> <span class="st">" "</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">group_by</span>(comentario_fecha)<span class="sc">%&gt;%</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">n</span>() <span class="sc">&gt;</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()<span class="sc">%&gt;%</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="fu">group_by</span>(submission_id) <span class="sc">%&gt;%</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">n</span>() <span class="sc">&gt;</span> <span class="dv">1</span>)</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="fu">as.Date</span>(datos_ask_proc<span class="sc">$</span>comentario_fecha)</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(datos_ask_proc, <span class="st">"datos_ask_proc.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</section>
+<section id="análisis" class="level1">
+<h1>Análisis</h1>
+<section id="variables" class="level2">
+<h2 class="anchored" data-anchor-id="variables">Variables</h2>
+<p>La base de datos procesada contiene un conjunto de variables que permite describir y analizar los contenidos de las publicaciones y comentarios de los subreddits a estudiar. En la siguiente tabla se presentan todas las variables incluidas en el análisis descriptivo, junto con una breve definición de su contenido y función dentro del dataset.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="llxhfxyzzm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#llxhfxyzzm table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#llxhfxyzzm thead, #llxhfxyzzm tbody, #llxhfxyzzm tfoot, #llxhfxyzzm tr, #llxhfxyzzm td, #llxhfxyzzm th {
+  border-style: none;
+}
+
+#llxhfxyzzm p {
+  margin: 0;
+  padding: 0;
+}
+
+#llxhfxyzzm .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 13px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: 100%;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#llxhfxyzzm .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#llxhfxyzzm .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#llxhfxyzzm .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#llxhfxyzzm .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#llxhfxyzzm .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#llxhfxyzzm .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#llxhfxyzzm .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#llxhfxyzzm .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#llxhfxyzzm .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#llxhfxyzzm .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#llxhfxyzzm .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#llxhfxyzzm .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#llxhfxyzzm .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#llxhfxyzzm .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#llxhfxyzzm .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#llxhfxyzzm .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#llxhfxyzzm .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#llxhfxyzzm .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#llxhfxyzzm .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#llxhfxyzzm .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#llxhfxyzzm .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#llxhfxyzzm .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#llxhfxyzzm .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#llxhfxyzzm .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#llxhfxyzzm .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#llxhfxyzzm .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#llxhfxyzzm .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#llxhfxyzzm .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#llxhfxyzzm .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#llxhfxyzzm .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#llxhfxyzzm .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#llxhfxyzzm .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#llxhfxyzzm .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#llxhfxyzzm .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#llxhfxyzzm .gt_left {
+  text-align: left;
+}
+
+#llxhfxyzzm .gt_center {
+  text-align: center;
+}
+
+#llxhfxyzzm .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#llxhfxyzzm .gt_font_normal {
+  font-weight: normal;
+}
+
+#llxhfxyzzm .gt_font_bold {
+  font-weight: bold;
+}
+
+#llxhfxyzzm .gt_font_italic {
+  font-style: italic;
+}
+
+#llxhfxyzzm .gt_super {
+  font-size: 65%;
+}
+
+#llxhfxyzzm .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#llxhfxyzzm .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#llxhfxyzzm .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#llxhfxyzzm .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#llxhfxyzzm .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#llxhfxyzzm .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#llxhfxyzzm .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#llxhfxyzzm .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#llxhfxyzzm div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_heading header">
+<td colspan="2" class="gt_heading gt_title gt_font_normal"><strong>Variables incluidas en el análisis</strong></td>
+</tr>
+<tr class="gt_heading even">
+<td colspan="2" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Definición de cada variable del dataset procesado</td>
+</tr>
+<tr class="gt_col_headings header">
+<th id="Variable" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Variable</th>
+<th id="Definición" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Definición</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="Variable">subreddit_nombre</td>
+<td class="gt_row gt_left" headers="Definición">Nombre del subreddit de donde proviene la publicación (AskMen o AskWomen).</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="Variable">submission_autor</td>
+<td class="gt_row gt_left gt_striped" headers="Definición">Usuario que creó la publicación original.</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Variable">submission_id</td>
+<td class="gt_row gt_left" headers="Definición">Identificador único de la publicación en Reddit.</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="Variable">submission_titulo</td>
+<td class="gt_row gt_left gt_striped" headers="Definición">Título de la publicación realizada en el subreddit.</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Variable">submission_numcom</td>
+<td class="gt_row gt_left" headers="Definición">Número total de comentarios que recibió la publicación.</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="Variable">submission_NSFW</td>
+<td class="gt_row gt_left gt_striped" headers="Definición">Indica si la publicación fue marcada como NSFW (Not Safe For Work) (0=no, 1=sí).</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Variable">submission_puntaje</td>
+<td class="gt_row gt_left" headers="Definición">Puntaje total de la publicación (upvotes – downvotes).</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="Variable">comentario_autor</td>
+<td class="gt_row gt_left gt_striped" headers="Definición">Usuario que escribió el comentario.</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Variable">comentario_id</td>
+<td class="gt_row gt_left" headers="Definición">Identificador único de cada comentario en Reddit.</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="Variable">comentario_body</td>
+<td class="gt_row gt_left gt_striped" headers="Definición">Texto completo del comentario.</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Variable">comentario_puntaje</td>
+<td class="gt_row gt_left" headers="Definición">Puntaje del comentario (upvotes – downvotes).</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="Variable">comentario_fecha</td>
+<td class="gt_row gt_left gt_striped" headers="Definición">Fecha en que se realizó el comentario (formato día-mes-año).</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Variable">comentario_hora</td>
+<td class="gt_row gt_left" headers="Definición">Hora en que se realizó el comentario.</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="análisis-descriptivo" class="level2">
+<h2 class="anchored" data-anchor-id="análisis-descriptivo">Análisis descriptivo</h2>
+<p>En la Tabla 1 se muestra la cantidad de comentarios en cada extracción por día y subreddit. Luego del procesamiento, el total de la base asciende a N = 9.085 comentarios. Como se observa en el Gráfico 1, la actividad diaria es consistentemente mayor en AskMen que en AskWomen, con una diferencia marcada que se mantiene a lo largo de los días analizados.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="dldwszeykp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#dldwszeykp table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#dldwszeykp thead, #dldwszeykp tbody, #dldwszeykp tfoot, #dldwszeykp tr, #dldwszeykp td, #dldwszeykp th {
+  border-style: none;
+}
+
+#dldwszeykp p {
+  margin: 0;
+  padding: 0;
+}
+
+#dldwszeykp .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: 100%;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#dldwszeykp .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#dldwszeykp .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#dldwszeykp .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#dldwszeykp .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#dldwszeykp .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dldwszeykp .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#dldwszeykp .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#dldwszeykp .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#dldwszeykp .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#dldwszeykp .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#dldwszeykp .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#dldwszeykp .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#dldwszeykp .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#dldwszeykp .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#dldwszeykp .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#dldwszeykp .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#dldwszeykp .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#dldwszeykp .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dldwszeykp .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#dldwszeykp .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#dldwszeykp .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#dldwszeykp .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dldwszeykp .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#dldwszeykp .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#dldwszeykp .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dldwszeykp .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dldwszeykp .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#dldwszeykp .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dldwszeykp .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#dldwszeykp .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dldwszeykp .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#dldwszeykp .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dldwszeykp .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#dldwszeykp .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dldwszeykp .gt_left {
+  text-align: left;
+}
+
+#dldwszeykp .gt_center {
+  text-align: center;
+}
+
+#dldwszeykp .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#dldwszeykp .gt_font_normal {
+  font-weight: normal;
+}
+
+#dldwszeykp .gt_font_bold {
+  font-weight: bold;
+}
+
+#dldwszeykp .gt_font_italic {
+  font-style: italic;
+}
+
+#dldwszeykp .gt_super {
+  font-size: 65%;
+}
+
+#dldwszeykp .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#dldwszeykp .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#dldwszeykp .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#dldwszeykp .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#dldwszeykp .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#dldwszeykp .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#dldwszeykp .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#dldwszeykp .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#dldwszeykp div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_heading header">
+<td colspan="3" class="gt_heading gt_title gt_font_normal">Tabla 1: Comentarios por día</td>
+</tr>
+<tr class="gt_heading even">
+<td colspan="3" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Cantidad de comentarios únicos en r/AskMen y r/AskWomen</td>
+</tr>
+<tr class="gt_col_headings header">
+<th id="comentario_fecha" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Fecha</th>
+<th id="subreddit_nombre" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Subreddit</th>
+<th id="comentarios" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Comentarios</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_right" headers="comentario_fecha">2025-09-25</td>
+<td class="gt_row gt_left" headers="subreddit_nombre">AskMen</td>
+<td class="gt_row gt_right" headers="comentarios">1,984</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="comentario_fecha">2025-09-25</td>
+<td class="gt_row gt_left" headers="subreddit_nombre">AskWomen</td>
+<td class="gt_row gt_right" headers="comentarios">691</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="comentario_fecha">2025-09-27</td>
+<td class="gt_row gt_left" headers="subreddit_nombre">AskMen</td>
+<td class="gt_row gt_right" headers="comentarios">1,937</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="comentario_fecha">2025-09-27</td>
+<td class="gt_row gt_left" headers="subreddit_nombre">AskWomen</td>
+<td class="gt_row gt_right" headers="comentarios">214</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="comentario_fecha">2025-09-29</td>
+<td class="gt_row gt_left" headers="subreddit_nombre">AskMen</td>
+<td class="gt_row gt_right" headers="comentarios">2,023</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="comentario_fecha">2025-09-29</td>
+<td class="gt_row gt_left" headers="subreddit_nombre">AskWomen</td>
+<td class="gt_row gt_right" headers="comentarios">254</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="comentario_fecha">2025-10-01</td>
+<td class="gt_row gt_left" headers="subreddit_nombre">AskMen</td>
+<td class="gt_row gt_right" headers="comentarios">1,387</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="comentario_fecha">2025-10-01</td>
+<td class="gt_row gt_left" headers="subreddit_nombre">AskWomen</td>
+<td class="gt_row gt_right" headers="comentarios">595</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="comentario_fecha">NA</td>
+<td class="gt_row gt_left" headers="subreddit_nombre">Total</td>
+<td class="gt_row gt_right" headers="comentarios">9,085</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="tutorial-1_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><br><br> La Tabla 2 presenta los estadísticos descriptivos de la cantidad de comentarios diarios. El promedio de AskMen (1.833) es más de cuatro veces superior al de AskWomen (438). Esto implica que, en promedio, por cada comentario en AskWomen, se registran cuatro en AskMen. Además, la variabilidad es mayor en AskMen, con un rango que llega hasta más de 2.000 comentarios, lo que indica mayor heterogeneidad en la actividad de este subreddit.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="feukbjknca" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#feukbjknca table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#feukbjknca thead, #feukbjknca tbody, #feukbjknca tfoot, #feukbjknca tr, #feukbjknca td, #feukbjknca th {
+  border-style: none;
+}
+
+#feukbjknca p {
+  margin: 0;
+  padding: 0;
+}
+
+#feukbjknca .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: 100%;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#feukbjknca .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#feukbjknca .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#feukbjknca .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#feukbjknca .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#feukbjknca .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#feukbjknca .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#feukbjknca .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#feukbjknca .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#feukbjknca .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#feukbjknca .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#feukbjknca .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#feukbjknca .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#feukbjknca .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#feukbjknca .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#feukbjknca .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#feukbjknca .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#feukbjknca .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#feukbjknca .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#feukbjknca .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#feukbjknca .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#feukbjknca .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#feukbjknca .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#feukbjknca .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#feukbjknca .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#feukbjknca .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#feukbjknca .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#feukbjknca .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#feukbjknca .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#feukbjknca .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#feukbjknca .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#feukbjknca .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#feukbjknca .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#feukbjknca .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#feukbjknca .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#feukbjknca .gt_left {
+  text-align: left;
+}
+
+#feukbjknca .gt_center {
+  text-align: center;
+}
+
+#feukbjknca .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#feukbjknca .gt_font_normal {
+  font-weight: normal;
+}
+
+#feukbjknca .gt_font_bold {
+  font-weight: bold;
+}
+
+#feukbjknca .gt_font_italic {
+  font-style: italic;
+}
+
+#feukbjknca .gt_super {
+  font-size: 65%;
+}
+
+#feukbjknca .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#feukbjknca .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#feukbjknca .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#feukbjknca .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#feukbjknca .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#feukbjknca .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#feukbjknca .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#feukbjknca .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#feukbjknca div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_heading header">
+<td colspan="4" class="gt_heading gt_title gt_font_normal">Tabla 2: Estadísticos descriptivos</td>
+</tr>
+<tr class="gt_heading even">
+<td colspan="4" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Descriptivos de comentarios diarios por subreddit</td>
+</tr>
+<tr class="gt_col_headings header">
+<th id="subreddit_nombre" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Subreddit</th>
+<th id="media" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Media</th>
+<th id="minimo" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Mínimo</th>
+<th id="maximo" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Máximo</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="subreddit_nombre">AskMen</td>
+<td class="gt_row gt_right" headers="media">1,833</td>
+<td class="gt_row gt_right" headers="minimo">1,387</td>
+<td class="gt_row gt_right" headers="maximo">2,023</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="subreddit_nombre">AskWomen</td>
+<td class="gt_row gt_right" headers="media">438</td>
+<td class="gt_row gt_right" headers="minimo">214</td>
+<td class="gt_row gt_right" headers="maximo">691</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p><br><br></p>
+<p>Respecto a las puntuaciones de las publicaciones, el Gráfico 2 evidencia una distribución con valores extremos más pronunciados en AskMen, donde aparecen publicaciones con puntajes considerablemente altos. En AskWomen, en cambio, las puntuaciones tienden a concentrarse en un rango más reducido, lo que sugiere un comportamiento más homogéneo en las interacciones de los usuarios.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="tutorial-1_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><br><br></p>
+<p>En el caso del contenido marcado como NSFW (Not Safe For Work), el Gráfico 3 muestra una diferencia significativa: en AskMen se contabilizan 470 comentarios en publicaciones NSFW, mientras que en AskWomen son solo 127. Este resultado refuerza la idea de que AskMen concentra una mayor proporción de interacciones asociadas a material sensible o explícito.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="tutorial-1_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="directrices-de-investigación" class="level2">
+<h2 class="anchored" data-anchor-id="directrices-de-investigación">Directrices de investigación</h2>
+<p>Para la investigación a futuro, se busca realizar un análisis específico de contenido con respecto al género. Por ejemplo, de insultos, contenido sexual, emociones, entre otros.</p>
+<p>En el Gráfico 4 se presenta un análisis preliminar sobre el uso de insultos hacia hombres y mujeres en los comentarios. En ambos subreddits se observa la presencia de lenguaje ofensivo, pero destaca que en AskMen se identifican más insultos dirigidos tanto a hombres (58,2%) como a mujeres (41,8%). En AskWomen, en cambio, los insultos aparecen en menor frecuencia, aunque con un sesgo marcado hacia insultos de carácter masculino (70%).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="tutorial-1_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="conclusión" class="level1">
+<h1>Conclusión</h1>
+<p>A modo de síntesis, se puede señalar que la actividad en AskMen es mucho mayor que en AskWomen, con cerca de cuatro veces más comentarios diarios. Además, las publicaciones en AskMen presentan puntajes más extremos, mientras que en AskWomen tienden a concentrarse en un rango más homogéneo.</p>
+<p>El contenido NSFW es más frecuente en AskMen, lo que refleja diferencias en las formas discursiva de cada comunidad.</p>
+<p>Finalmente, los insultos aparecen con mayor intensidad en AskMen, tanto hacia hombres como hacia mujeres. En AskWomen son menos frecuentes, aunque con un sesgo hacia insultos dirigidos a lo masculino.</p>
+<p>En conjunto, AskMen se caracteriza por un volumen de interacciones más alto, dinámicas discursivas más polarizadas, reflejado en sus puntajes, y mayor presencia de lenguaje sensible, mientras que AskWomen muestra menor actividad y un discurso más homogéneo.</p>
+</section>
+<section id="referencias-bibliográficas" class="level1">
+<h1>Referencias bibliográficas</h1>
+<p>Criado, N., Ferrer, X., Such, J. &amp; Van Nuenen, T. (2021). Discovering and Categorising Language Biases in Reddit. <em>Proceedings of the International AAAI Conference on Web and Social Media, 15</em>(1), 140-151. <a href="https://doi.org/10.1609/icwsm.v15i1.18048" class="uri">https://doi.org/10.1609/icwsm.v15i1.18048</a>&nbsp;</p>
+<p>Sawicki, J. &amp; Solska, D. (2024). Decoding gender bias through a textual exploration of Reddit /r/MensRights community. Beyond Philology, 1(21), 167-202. <a href="https://doi.org/10.26881/bp.2024.1.06" class="uri">https://doi.org/10.26881/bp.2024.1.06</a></p>
+<p>Scholz, S., Stang, P., Weiss, M. &amp; Winkler, C. (2025). Changing Conversations: The Rise of Gender and Sexuality Discourse on Reddit. <em>Arch Sex Behav, 54</em>, 1–5. <a href="https://doi.org/10.1007/s10508-024-03051-9" class="uri">https://doi.org/10.1007/s10508-024-03051-9</a></p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

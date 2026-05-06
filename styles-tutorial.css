@@ -1,0 +1,227 @@
+/* ============================================================
+   styles-tutorial.css
+   Estilo académico para tutoriales Quarto (.qmd → HTML)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;600&family=Source+Code+Pro:wght@400;500&display=swap');
+
+/* ── Variables ─────────────────────────────────────────────── */
+:root {
+  --color-bg:         #FAFAF8;
+  --color-surface:    #FFFFFF;
+  --color-border:     #E2DDD8;
+  --color-accent:     #023671;
+  --color-accent-2:   #FF7F11;
+  --color-text:       #1C1C1E;
+  --color-muted:      #6B6560;
+  --color-code-bg:    #F3F1EE;
+
+  --font-body:        'Source Sans 3', Georgia, serif;
+  --font-heading:     'Lora', Georgia, serif;
+  --font-code:        'Source Code Pro', 'Courier New', monospace;
+
+  --max-width:        860px;
+  --radius:           6px;
+}
+
+/* ── Base ───────────────────────────────────────────────────── */
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.75;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Layout ─────────────────────────────────────────────────── */
+#quarto-content,
+.quarto-container,
+main.content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem 2rem 4rem;
+}
+
+/* ── Portada / título ───────────────────────────────────────── */
+#title-block-header {
+  border-bottom: 3px solid var(--color-accent);
+  padding-bottom: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  line-height: 1.3;
+  margin-bottom: 0.4rem;
+}
+
+.subtitle {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--color-muted);
+  margin-top: 0.25rem;
+}
+
+.author,
+.date {
+  font-size: 0.92rem;
+  color: var(--color-muted);
+  margin-top: 0.15rem;
+}
+
+/* ── Headings ───────────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-accent);
+  line-height: 1.35;
+  margin-top: 2.2rem;
+  margin-bottom: 0.6rem;
+}
+
+h1 { font-size: 1.75rem; border-bottom: 2px solid var(--color-border); padding-bottom: 0.3rem; }
+h2 { font-size: 1.4rem; }
+h3 { font-size: 1.15rem; font-weight: 600; color: var(--color-text); }
+h4 { font-size: 1rem; font-weight: 600; color: var(--color-muted); text-transform: uppercase; letter-spacing: 0.04em; }
+
+/* ── Párrafos ───────────────────────────────────────────────── */
+p {
+  text-align: justify;
+  margin-bottom: 1rem;
+}
+
+/* ── Links ──────────────────────────────────────────────────── */
+a {
+  color: var(--color-accent-2);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+a:hover {
+  border-bottom-color: var(--color-accent-2);
+}
+
+/* ── Listas ─────────────────────────────────────────────────── */
+ul, ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+li {
+  margin-bottom: 0.3rem;
+}
+
+/* ── Código inline ──────────────────────────────────────────── */
+code {
+  font-family: var(--font-code);
+  font-size: 0.88em;
+  background: var(--color-code-bg);
+  color: var(--color-accent);
+  padding: 0.15em 0.4em;
+  border-radius: 3px;
+}
+
+/* ── Bloques de código ──────────────────────────────────────── */
+pre {
+  background: var(--color-code-bg);
+  border-left: 3px solid var(--color-accent);
+  border-radius: var(--radius);
+  padding: 1rem 1.2rem;
+  overflow-x: auto;
+  font-size: 0.87rem;
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+}
+pre code {
+  background: none;
+  padding: 0;
+  color: var(--color-text);
+}
+
+/* ── Tablas ─────────────────────────────────────────────────── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.92rem;
+}
+thead {
+  background-color: var(--color-accent);
+  color: #FFFFFF;
+}
+thead th {
+  padding: 0.6rem 0.8rem;
+  font-weight: 600;
+  text-align: left;
+}
+tbody tr:nth-child(even) {
+  background-color: #F0EDE8;
+}
+tbody td {
+  padding: 0.55rem 0.8rem;
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: top;
+}
+
+/* ── Blockquote ─────────────────────────────────────────────── */
+blockquote {
+  border-left: 4px solid var(--color-accent-2);
+  margin: 1.5rem 0;
+  padding: 0.6rem 1.2rem;
+  background: #FFF8F2;
+  color: var(--color-muted);
+  font-style: italic;
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+/* ── Callouts de Quarto ─────────────────────────────────────── */
+.callout {
+  border-radius: var(--radius);
+  border-left-width: 4px;
+  margin: 1.5rem 0;
+}
+.callout-note    { border-left-color: var(--color-accent); }
+.callout-warning { border-left-color: var(--color-accent-2); }
+
+/* ── Figuras ────────────────────────────────────────────────── */
+figure {
+  margin: 1.5rem auto;
+  text-align: center;
+}
+figcaption,
+.figure-caption {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  margin-top: 0.4rem;
+  font-style: italic;
+}
+
+/* ── TOC (tabla de contenidos) ──────────────────────────────── */
+#TOC {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1rem 1.2rem;
+  font-size: 0.9rem;
+}
+#TOC a {
+  color: var(--color-text);
+  border-bottom: none;
+}
+#TOC a:hover {
+  color: var(--color-accent);
+}
+#TOC ul { list-style: none; padding-left: 1rem; }
+#TOC > ul { padding-left: 0; }
+
+/* ── Separador ──────────────────────────────────────────────── */
+hr {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 2rem 0;
+}

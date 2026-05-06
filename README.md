@@ -43,7 +43,7 @@ mediante pruebas estadísticas.
 
 ## Estructura del repositorio
 
-```
+```text
 Misoginia-Virtual/
 ├── data/ # Bases de datos procesadas
 ├── images/ # Imágenes

@@ -29,15 +29,15 @@ mediante pruebas estadísticas.
 
 | Documento                                                                                    | Descripción                                                             |
 | -------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| [Tutorial 1](https://cristobal-mejias-g.github.io/Misoginia-Virtual/tutorial-1.html)         | Extracción de datos con PRAW, procesamiento en R y análisis descriptivo |
-| [Presentación 1](https://cristobal-mejias-g.github.io/Misoginia-Virtual/presentacion-1.html) | Diapositivas de la primera etapa                                        |
+| [Tutorial 1](https://cristobal-mejias-g.github.io/misoginia-virtual/tutorial-1.html)         | Extracción de datos con PRAW, procesamiento en R y análisis descriptivo |
+| [Presentación 1](https://cristobal-mejias-g.github.io/misoginia-virtual/presentacion-1.html) | Diapositivas de la primera etapa                                        |
 
 ### Etapa 2 — Misoginia digital: lenguaje y emociones
 
 | Documento                                                                                    | Descripción                                                         |
 | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| [Tutorial 2](https://cristobal-mejias-g.github.io/Misoginia-Virtual/tutorial-2.html)         | Marco teórico, NLP con BERTweet y DistilBERT, análisis de hipótesis |
-| [Presentación 2](https://cristobal-mejias-g.github.io/Misoginia-Virtual/presentacion-2.html) | Diapositivas de la segunda etapa                                    |
+| [Tutorial 2](https://cristobal-mejias-g.github.io/misoginia-virtual/tutorial-2.html)         | Marco teórico, NLP con BERTweet y DistilBERT, análisis de hipótesis |
+| [Presentación 2](https://cristobal-mejias-g.github.io/misoginia-virtual/presentacion-2.html) | Diapositivas de la segunda etapa                                    |
 
 ---
 
